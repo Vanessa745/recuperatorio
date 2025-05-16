@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface IRecordatorioDAO {
     @Query("SELECT * FROM recordatorio_db")
-    fun getRecordatorios(): List<RecordatorioDB>
+    suspend fun getRecordatorios(): List<RecordatorioDB>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(rec: RecordatorioDB)

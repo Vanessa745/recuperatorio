@@ -27,7 +27,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
+import com.example.recuperatorio.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -37,13 +39,13 @@ fun listaScreen(viewModel: ListaRecViewModel = hiltViewModel(), onBackPressed: (
     }
 
     val recordatorios by viewModel.listaflow.collectAsState()
-    var n = 0
+//    var n = 0
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "Movie Details")
+                    Text(text = stringResource(id = R.string.text2))
                 },
                 navigationIcon = {
                     IconButton(
@@ -65,10 +67,6 @@ fun listaScreen(viewModel: ListaRecViewModel = hiltViewModel(), onBackPressed: (
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = "Lista de Recordatorios",
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
                 LazyColumn {
                     items(recordatorios) { rec ->
                         Card(
@@ -78,13 +76,13 @@ fun listaScreen(viewModel: ListaRecViewModel = hiltViewModel(), onBackPressed: (
                             elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
                         ) {
                             Column(modifier = Modifier.padding(12.dp)) {
-                                Text("Recordatorio: "+(n+1).toString(), fontSize = 18.sp)
+//                                Text("Recordatorio: "+(n+1).toString(), fontSize = 18.sp)
                                 Text("Nombre: ${rec.nombre}", fontSize = 18.sp)
                                 Text("Fecha: ${rec.fecha}")
                                 Text("Importancia: ${rec.importancia}")
                             }
                         }
-                        n += 1
+//                        n += 1
                     }
                 }
             }

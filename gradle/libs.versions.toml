@@ -84,7 +84,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref="ksp"}
 
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
-kapt = { id = "org.jetbrains.kotlin.kapt"}
+kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 

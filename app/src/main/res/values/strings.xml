@@ -9,4 +9,5 @@
     <string name="op3">Muy Importante</string>
     <string name="btn1">Guardar Recordatorio</string>
     <string name="btn2">Ver Recordatorios</string>
+    <string name="text2">Recordatorios</string>
 </resources>

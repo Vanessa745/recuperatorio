@@ -1,5 +1,6 @@
 package com.example.recuperatorio.registroRecordatorio
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -117,6 +118,10 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
             modifier = Modifier.fillMaxWidth(),
             onClick = {
                 viewModel.guardarRec(nomRec, fecRec, impRec)
+
+                nomRec = ""
+                fecRec = ""
+                impRec = ""
             }
         ) {
             Text(
