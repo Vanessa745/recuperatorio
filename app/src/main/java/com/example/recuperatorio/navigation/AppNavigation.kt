@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.recuperatorio.listaRecordatorios.listaScreen
 import com.example.recuperatorio.registroRecordatorio.registroScreen
 import com.example.recuperatorio.splashScreen
 
@@ -30,7 +31,15 @@ fun AppNavigation() {
         }
 
         composable(Screen.RegistroScreen.route) {
-            registroScreen()
+            registroScreen(
+                onSuccess = {
+                    navController.navigate(Screen.ListaScreen.route)
+                }
+            )
+        }
+
+        composable(Screen.ListaScreen.route) {
+            listaScreen()
         }
     }
 }

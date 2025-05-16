@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel()) {
+fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess : () -> Unit) {
     var nomRec by remember { mutableStateOf("") }
     var fecRec by remember { mutableStateOf("") }
     var impRec by remember { mutableStateOf("") }
@@ -124,6 +124,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel()) {
         OutlinedButton(
             modifier = Modifier.fillMaxWidth(),
             onClick = {
+                onSuccess()
             }
         ) {
             Text("Ver Recordatorios")
