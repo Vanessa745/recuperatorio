@@ -22,6 +22,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.recuperatorio.R
 
 @Composable
 fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess : () -> Unit) {
@@ -39,7 +40,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
         Text(
             modifier = Modifier
                 .padding(0.dp, 10.dp, 0.dp, 10.dp),
-            text = "Ingrese los datos del recordatorio: ",
+            text = stringResource(id = R.string.text1),
             fontSize = 20.sp
         )
         OutlinedTextField(
@@ -50,7 +51,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
             },
             label = {
                 Text(
-                    "Ingrese el nombre del recordatorio"
+                    text = stringResource(id = R.string.input1)
                 )
             }
         )
@@ -62,7 +63,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
             },
             label = {
                 Text(
-                    "Ingrese la fecha del recordatorio"
+                    text = stringResource(id = R.string.input2)
                 )
             }
         )
@@ -71,7 +72,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
             Text(
                 modifier = Modifier
                     .padding(0.dp, 10.dp, 0.dp, 10.dp),
-                text = "Seleccione la importancia del recordatorio:",
+                text = stringResource(id = R.string.sel1),
                 fontSize = 20.sp
             )
             Row (
@@ -82,7 +83,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
                     onClick = { impRec = "Normal" }
                 )
                 Text(
-                    text = "Normal",
+                    text = stringResource(id = R.string.op1),
                     fontSize = 18.sp
                 )
             }
@@ -94,7 +95,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
                     onClick = { impRec = "Importante" }
                 )
                 Text(
-                    text = "Importante",
+                    text = stringResource(id = R.string.op2),
                     fontSize = 18.sp
                 )
             }
@@ -106,7 +107,7 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
                     onClick = { impRec = "Muy Importante" }
                 )
                 Text(
-                    text = "Muy Importante",
+                    text = stringResource(id = R.string.op3),
                     fontSize = 18.sp
                 )
             }
@@ -118,7 +119,9 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
                 viewModel.guardarRec(nomRec, fecRec, impRec)
             }
         ) {
-            Text("Guardar Recordatorio")
+            Text(
+                text = stringResource(id = R.string.btn1)
+            )
         }
 
         OutlinedButton(
@@ -127,7 +130,9 @@ fun registroScreen(viewModel: RegistroRecViewModel = hiltViewModel(), onSuccess 
                 onSuccess()
             }
         ) {
-            Text("Ver Recordatorios")
+            Text(
+                text = stringResource(id = R.string.btn2)
+            )
         }
     }
 }

@@ -14,7 +14,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListaRecViewModel @Inject constructor(
-    private val getRecordatorios: RecuperarRecordatorios
+    private val getRecordatorios: RecuperarRecordatorios,
+    @ApplicationContext private val context: Context
 ) : ViewModel() {
     private val _listaflow = MutableStateFlow<List<Recordatorio>>(emptyList())
     val listaflow : StateFlow<List<Recordatorio>> = _listaflow

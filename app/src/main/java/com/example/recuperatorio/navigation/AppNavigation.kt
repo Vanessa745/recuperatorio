@@ -39,7 +39,7 @@ fun AppNavigation() {
         }
 
         composable(Screen.ListaScreen.route) {
-            listaScreen()
+            listaScreen(onBackPressed = { navController.popBackStack() })
         }
     }
 }
