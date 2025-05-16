@@ -12,16 +12,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//@HiltViewModel
-//class ListaRecViewModel @Inject constructor(
-//    private val getRecordatorios: RecuperarRecordatorios
-//) : ViewModel() {
-//    private val _listaflow = MutableStateFlow<List<Recordatorio>>(emptyList())
-//    val listaflow : StateFlow<List<Recordatorio>> = _listaflow
-//
-//    fun cargarRecordatorios() {
-//        viewModelScope.launch {
-////            _listaflow.value = getRecordatorios.invoke()
-//        }
-//    }
-//}
+@HiltViewModel
+class ListaRecViewModel @Inject constructor(
+    private val getRecordatorios: RecuperarRecordatorios
+) : ViewModel() {
+    private val _listaflow = MutableStateFlow<List<Recordatorio>>(emptyList())
+    val listaflow : StateFlow<List<Recordatorio>> = _listaflow
+
+    fun cargarRecordatorios() {
+        viewModelScope.launch {
+            _listaflow.value = getRecordatorios.invoke()
+        }
+    }
+}

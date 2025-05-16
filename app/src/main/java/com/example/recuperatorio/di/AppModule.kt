@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.data.RecordatoriosRepository
 import com.example.data.recordatorios.ILocalDataSource
 import com.example.framework.RecordatoriosLocalDataSource
+import com.example.usecases.RecuperarRecordatorios
 import com.example.usecases.SaveRecordatorio
 import dagger.Module
 import dagger.Provides
@@ -31,5 +32,11 @@ object AppModule {
     @Singleton
     fun provideSaveRec(repository: RecordatoriosRepository): SaveRecordatorio {
         return SaveRecordatorio(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRecuperarRec(repository: RecordatoriosRepository): RecuperarRecordatorios {
+        return RecuperarRecordatorios(repository)
     }
 }
